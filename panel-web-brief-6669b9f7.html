@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华体会 · 日常查询与延伸阅读</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', 'PingFang SC', Roboto, system-ui, sans-serif;
+            background-color: #f0f2f5;
+            color: #1e2a3a;
+            line-height: 1.7;
+            padding: 2rem 1.5rem;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* hero 区 */
+        .hero {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 3.2rem 2.8rem 2.8rem;
+            margin-bottom: 2.2rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e6eaf0;
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #0f1a2e;
+            margin-bottom: 0.75rem;
+        }
+        .hero p {
+            font-size: 1.125rem;
+            color: #3c4b5e;
+            max-width: 75%;
+            margin-bottom: 1.8rem;
+        }
+        .hero .meta-tag {
+            display: inline-block;
+            background: #f0f4fe;
+            color: #1f4a8c;
+            border-radius: 40px;
+            padding: 0.2rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid #d6e3f5;
+        }
+
+        /* 卡片通用设计 */
+        .card-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin: 2rem 0;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 1.8rem 2rem;
+            flex: 1 1 280px;
+            border: 1px solid #e3e8f0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.2s;
+        }
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+        }
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            color: #0a1a2e;
+            border-left: 4px solid #9bb7e0;
+            padding-left: 0.8rem;
+        }
+        .card p {
+            font-size: 0.95rem;
+            color: #2d3b4d;
+            margin-bottom: 0.4rem;
+        }
+        .card .small-note {
+            font-size: 0.85rem;
+            color: #6c7a8c;
+            border-top: 1px dashed #dde2ec;
+            padding-top: 0.7rem;
+            margin-top: 0.8rem;
+        }
+
+        /* 说明区（加宽） */
+        .explainer {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2.2rem 2.6rem 2.4rem;
+            margin: 1.8rem 0;
+            border: 1px solid #e3e8f0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        }
+        .explainer h2 {
+            font-size: 1.7rem;
+            font-weight: 450;
+            margin-bottom: 1.2rem;
+            color: #111e30;
+        }
+        .explainer p {
+            margin-bottom: 1.2rem;
+            color: #2d3b4f;
+        }
+        .explainer a {
+            color: #1f5090;
+            text-decoration: none;
+            border-bottom: 1px solid #b8cae0;
+            font-weight: 450;
+        }
+        .explainer a:hover {
+            color: #0e3a70;
+            border-bottom-color: #0e3a70;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2.4rem 2.2rem;
+            margin: 1.8rem 0;
+            border: 1px solid #e3e8f0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        }
+        .faq-summary h2 {
+            font-size: 1.5rem;
+            font-weight: 450;
+            margin-bottom: 1.4rem;
+            color: #111e30;
+        }
+        .faq-item {
+            border-bottom: 1px solid #eaeef5;
+            padding: 0.9rem 0;
+        }
+        .faq-item:last-of-type {
+            border-bottom: none;
+        }
+        .faq-q {
+            font-weight: 500;
+            color: #15273e;
+            margin-bottom: 0.25rem;
+        }
+        .faq-a {
+            font-size: 0.92rem;
+            color: #3b4c62;
+        }
+        .faq-a a {
+            color: #1f5090;
+            text-decoration: none;
+            border-bottom: 1px solid #bdd0e8;
+        }
+        .faq-a a:hover {
+            border-bottom-color: #0f3d70;
+        }
+
+        /* 底部链接 */
+        .footer-links {
+            margin-top: 2.8rem;
+            padding: 1.4rem 0 0.4rem;
+            border-top: 1px solid #dbe0e8;
+            font-size: 0.9rem;
+            color: #4a5a6e;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem 2rem;
+        }
+        .footer-links a {
+            color: #1f5090;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+        }
+        .footer-links a:hover {
+            border-bottom-color: #1f5090;
+        }
+
+        /* 响应式 */
+        @media (max-width: 680px) {
+            body { padding: 1.2rem; }
+            .hero { padding: 2rem 1.5rem; }
+            .hero h1 { font-size: 2rem; }
+            .hero p { max-width: 100%; font-size: 1rem; }
+            .explainer { padding: 1.5rem; }
+            .faq-summary { padding: 1.5rem; }
+            .card { flex: 1 1 100%; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- hero 区 -->
+    <div class="hero">
+        <h1>日常查询 · 对照延伸</h1>
+        <p>把零散的需求变成清晰的线索——从快速对照到延伸阅读，<strong>华体会</strong>一直是你手边那个可靠的参照。</p>
+        <span class="meta-tag">📎 轻量 · 可翻阅 · 常更新</span>
+    </div>
+
+    <!-- 优势区：卡片式 -->
+    <div class="card-grid">
+        <div class="card">
+            <h3>📋 对照式结构</h3>
+            <p>条目之间互相呼应，方便你对比不同模块的信息。不管是查看状态还是核对细节，一眼就能找到对应关系。</p>
+            <div class="small-note">适合反复翻阅，不遗漏</div>
+        </div>
+        <div class="card">
+            <h3>🔍 延伸阅读入口</h3>
+            <p>每一个小的提示都可能引出更多内容。点击 <a href="https://panel-web-hth.com" style="color:#1f5090; text-decoration:none; border-bottom:1px solid #b8cae0;">华体会</a> 可以展开更完整的索引，帮你连点成线。</p>
+            <div class="small-note">从片段到全景，只需一步</div>
+        </div>
+        <div class="card">
+            <h3>📌 场景化标签</h3>
+            <p>日常使用中你可能会遇到不同的场景——查询、核对、记录、回溯。页面按场景组织，你总能快速定位到自己需要的那一块。</p>
+            <div class="small-note">不迷路，不重复</div>
+        </div>
+    </div>
+
+    <!-- 说明区 (延伸阅读 + 自然嵌入链接) -->
+    <div class="explainer">
+        <h2>从日常查询到延伸阅读</h2>
+        <p>在信息碎片化的生活里，我们经常需要一个稳定、安静的参照点。你可能只是想确认某个细节，或者把几个分散的片段拼接起来。这时候，一个结构清晰、没有冗余的页面就显得格外顺手。</p>
+        <p><strong>华体会</strong> 的搭建思路正是如此：它不堆砌内容，而是让每一个模块都服务于“查找”与“对照”。你可以把它当作一个随身的信息锚点，在需要的时候快速翻阅。比如，当你正在处理一批对照数据，或者想回顾某条记录的背景时，打开 <a href="https://panel-web-hth.com">华体会</a> 就能直接进入状态，省去中间无谓的跳转。</p>
+        <p>延伸阅读不是负担，而是自然的线索延伸。每一处链接都保留了上下文，让你在阅读时不必跳出太远。这种轻巧的节奏，很适合慢慢浏览，也适合紧急查证。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-summary">
+        <h2>常见提问 · 摘要</h2>
+        <div class="faq-item">
+            <div class="faq-q">怎么快速找到我需要的条目？</div>
+            <div class="faq-a">页面按功能分区排列，每个区都有标题引导。你也可以直接在 <a href="https://panel-web-hth.com">华体会</a> 内使用浏览器查找功能（Ctrl+F）定位关键词，效率更高。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">页面上的链接会跳转到哪里？</div>
+            <div class="faq-a">所有链接均指向同一站内的相关板块或延伸页面，不会离开核心域。点击 <a href="https://panel-web-hth.com">华体会</a> 即可返回首页或查看完整列表。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">内容多久更新一次？</div>
+            <div class="faq-a">没有固定周期，但会根据实际需求调整。你每次打开看到的都是当前最新版本。如果想确保不错过变化，可以定期回来扫一眼。</div>
+        </div>
+    </div>
+
+    <!-- 底部链接 (自然排列，不是按钮) -->
+    <div class="footer-links">
+        <span><a href="https://panel-web-hth.com">华体会</a> · 首页导航</span>
+        <span>对照索引 · 延伸阅读</span>
+        <span>场景标签 · 帮助</span>
+        <span style="color:#8a9bb0;">版本记录 · 2025</span>
+    </div>
+
+    <!-- 页面底部静默注释（不展示种子，仅用于变化提示） -->
+</div>
+</body>
+</html>
